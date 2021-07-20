@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import "../styles/editor.scss"
-import {CirclePicker} from "react-color"
+import {ChromePicker} from "react-color"
 import DrawingPanel from "./DrawingPanel"
 
 export default function Editor() {
@@ -11,16 +11,16 @@ export default function Editor() {
     const [buttonText, setButtonText] = useState("Create Canvas!")
     const [selectedColor, setColor] = useState("#f44336")
 
-   function initializeDrawingPanel() {
-       setHideOptions(!hideOptions)
-       setHideDrawingPanel(!hideDrawingPanel)
+    function initializeDrawingPanel() {
+        setHideOptions(!hideOptions)
+        setHideDrawingPanel(!hideDrawingPanel)
 
-       buttonText === "Create Canvas!" ? setButtonText("Reset Canvas!") : setButtonText("Create Canvas!")
-   }
+        buttonText === "Create Canvas!" ? setButtonText("Reset Canvas!") : setButtonText("Create Canvas!")
+    }
 
-   function changeColor(color) {
-       setColor(color.hex)
-   }
+    function changeColor(color) {
+        setColor(color.hex)
+    }
 
     return (
         <div id="editor">
@@ -54,7 +54,7 @@ export default function Editor() {
             <button onClick={initializeDrawingPanel} className="button">{buttonText}</button>
 
             {hideOptions && (
-                <CirclePicker color={selectedColor} onChangeComplete={changeColor}/>
+                <ChromePicker color={selectedColor} onChangeComplete={changeColor} className="picker"/>
             )}
 
             {hideOptions && (
@@ -62,6 +62,7 @@ export default function Editor() {
                     width={panelWidth}
                     height={panelHeight}
                     selectedColor={selectedColor}
+                    className="panel"
                 />
             )}
         </div>
