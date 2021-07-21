@@ -63,14 +63,14 @@ export default function Editor() {
                 />
             )}
 
-            <div>
-                    <DrawingPanel
-                        width={panelWidth}
-                        height={panelHeight}
-                        selectedColor={selectedColor}
-                        className="panel"
-                    />
-            </div>
+            {hideOptions && (
+                <DrawingPanel
+                    width={panelWidth}
+                    height={panelHeight}
+                    selectedColor={selectedColor}
+                    className="panel"
+                />
+            )}
         </div>
     )
 }

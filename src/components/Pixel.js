@@ -4,7 +4,7 @@ import "../styles/pixel.scss"
 export default function Pixel(props) {
     const {selectedColor} = props
 
-    const [pixelColor, setPixelColor] = useState("#ffffff00")
+    const [pixelColor, setPixelColor] = useState("#ffffff")
     const [oldColor, setOldColor] = useState(pixelColor)
     const [canChangeColor, setCanChangeColor] = useState(true)
 
@@ -29,7 +29,7 @@ export default function Pixel(props) {
     return (
         <div 
             className="pixel" 
-            onClick={applyColor} 
+            onMouseDown={applyColor} 
             onMouseEnter={changeColorOnHover} 
             onMouseLeave={resetColor} 
             style={{backgroundColor: pixelColor}}>
